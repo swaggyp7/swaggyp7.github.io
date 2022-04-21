@@ -9,7 +9,7 @@
     
     <title>
         
-            Personal Opinion About &#34;Check in&#34; Form |
+            Python selenium 无头浏览器过CloudFlare |
         
         Lyn
     </title>
@@ -154,7 +154,7 @@
     <div class="article-content-container">
 
         <div class="article-title">
-            <span class="title-hover-animation">Personal Opinion About &#34;Check in&#34; Form</span>
+            <span class="title-hover-animation">Python selenium 无头浏览器过CloudFlare</span>
         </div>
 
         
@@ -173,8 +173,8 @@
                         <div class="article-meta-info">
     <span class="article-date article-meta-item">
         <i class="fas fa-edit"></i>&nbsp;
-        <span class="pc">2022-04-14 14:07:00</span>
-        <span class="mobile">2022-04-14 14:07</span>
+        <span class="pc">2022-04-21 09:55:00</span>
+        <span class="mobile">2022-04-21 09:55</span>
     </span>
     
         <span class="article-categories article-meta-item">
@@ -182,7 +182,7 @@
             <ul>
                 
                     <li>
-                        <a href="/categories/English/">English</a>&nbsp;
+                        <a href="/categories/Python/">Python</a>&nbsp;
                     </li>
                 
             </ul>
@@ -194,7 +194,11 @@
             <ul>
                 
                     <li>
-                        <a href="/tags/English/">English</a>&nbsp;
+                        <a href="/tags/Python/">Python</a>&nbsp;
+                    </li>
+                
+                    <li>
+                        | <a href="/tags/Spider/">Spider</a>&nbsp;
                     </li>
                 
             </ul>
@@ -217,7 +221,8 @@
         
 
         <div class="article-content markdown-body">
-            <p>  <em>I’ve seen too many people record their learning, working or gym, etc. which they intend to persist in it on WeChat Moments, But I hardly see any of them still keeping it when one week passes or earlier.</em><br>  *IMO, It seems more like a sort of ritual for them than their initial purpose; It will be redundant and waste time for people who actually want to become better; Honestly, it really needs extremely determination to keep firm until we achieve succeed</p>
+            <h2 id="使用-undetected-chromedriver-chrome驱动"><a href="#使用-undetected-chromedriver-chrome驱动" class="headerlink" title="使用 undetected_chromedriver chrome驱动"></a>使用 undetected_chromedriver chrome驱动</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> selenium.webdriver.chrome.options <span class="keyword">import</span> Options</span><br><span class="line"><span class="keyword">from</span> selenium.webdriver.support.ui <span class="keyword">import</span> WebDriverWait</span><br><span class="line"><span class="keyword">from</span> selenium.webdriver.support <span class="keyword">import</span> expected_conditions <span class="keyword">as</span> EC</span><br><span class="line"><span class="keyword">from</span> selenium.webdriver.common.by <span class="keyword">import</span> By</span><br><span class="line"><span class="keyword">import</span> undetected_chromedriver <span class="keyword">as</span> uc                    </span><br><span class="line">  </span><br><span class="line">  </span><br><span class="line">  chrome_options = Options()</span><br><span class="line"> chrome_options.add_argument(<span class="string">&#x27;--headless&#x27;</span>)</span><br><span class="line">        <span class="comment"># chrome_options.add_argument(</span></span><br><span class="line">        <span class="comment">#     &#x27;user-agent=&quot;Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/76.0.3809.100 Safari/537.36&quot;&#x27;</span></span><br><span class="line">        <span class="comment"># )</span></span><br><span class="line">self.driver = uc.Chrome(chrome_options)</span><br><span class="line">        <span class="comment"># 测试后发现使用Undetected Chromedrive 不需要注入js</span></span><br><span class="line">        <span class="comment"># with open(&#x27;./stealth.min.js&#x27;) as f:</span></span><br><span class="line">        <span class="comment">#     js = f.read()</span></span><br><span class="line"></span><br><span class="line">        <span class="comment"># self.driver.execute_cdp_cmd(&quot;Page.addScriptToEvaluateOnNewDocument&quot;,</span></span><br><span class="line">        <span class="comment">#                             &#123;&quot;source&quot;: js&#125;)</span></span><br></pre></td></tr></table></figure>
+
 
         </div>
 
@@ -227,7 +232,11 @@
             <ul class="post-tags-box">
                 
                     <li class="tag-item">
-                        <a href="/tags/English/">#English</a>&nbsp;
+                        <a href="/tags/Python/">#Python</a>&nbsp;
+                    </li>
+                
+                    <li class="tag-item">
+                        <a href="/tags/Spider/">#Spider</a>&nbsp;
                     </li>
                 
             </ul>
@@ -239,13 +248,13 @@
                     <div class="article-prev">
                         <a class="prev"
                            rel="prev"
-                           href="/2022/04/21/Python-selenium-%E6%97%A0%E5%A4%B4%E6%B5%8F%E8%A7%88%E5%99%A8%E8%BF%87CloudFlare/"
+                           href="/2022/04/21/Python-Cloudscraper-Request%E8%AF%B7%E6%B1%82HTML%E8%BF%87CloudFlare%E6%A3%80%E6%B5%8B/"
                         >
                             <span class="left arrow-icon flex-center">
                               <i class="fas fa-chevron-left"></i>
                             </span>
                             <span class="title flex-center">
-                                <span class="post-nav-title-item">Python selenium 无头浏览器过CloudFlare</span>
+                                <span class="post-nav-title-item">Python Cloudscraper Request请求HTML过CloudFlare检测</span>
                                 <span class="post-nav-item">Prev posts</span>
                             </span>
                         </a>
@@ -255,10 +264,10 @@
                     <div class="article-next">
                         <a class="next"
                            rel="next"
-                           href="/2022/04/12/Http%E8%AF%B7%E6%B1%82%E6%96%B9%E5%BC%8F/"
+                           href="/2022/04/14/Personal-Opinion-About-Check-in-Form/"
                         >
                             <span class="title flex-center">
-                                <span class="post-nav-title-item">Http请求方式</span>
+                                <span class="post-nav-title-item">Personal Opinion About &#34;Check in&#34; Form</span>
                                 <span class="post-nav-item">Next posts</span>
                             </span>
                             <span class="right arrow-icon flex-center">
@@ -458,7 +467,7 @@
         <aside class="page-aside">
             <div class="post-toc-wrap">
     <div class="post-toc">
-        
+        <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BD%BF%E7%94%A8-undetected-chromedriver-chrome%E9%A9%B1%E5%8A%A8"><span class="nav-text">使用 undetected_chromedriver chrome驱动</span></a></li></ol>
     </div>
 </div>
         </aside>

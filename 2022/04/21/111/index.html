@@ -9,7 +9,7 @@
     
     <title>
         
-            Personal Opinion About &#34;Check in&#34; Form |
+            Python ssh桥连mysql |
         
         Lyn
     </title>
@@ -154,7 +154,7 @@
     <div class="article-content-container">
 
         <div class="article-title">
-            <span class="title-hover-animation">Personal Opinion About &#34;Check in&#34; Form</span>
+            <span class="title-hover-animation">Python ssh桥连mysql</span>
         </div>
 
         
@@ -173,8 +173,8 @@
                         <div class="article-meta-info">
     <span class="article-date article-meta-item">
         <i class="fas fa-edit"></i>&nbsp;
-        <span class="pc">2022-04-14 14:07:00</span>
-        <span class="mobile">2022-04-14 14:07</span>
+        <span class="pc">2022-04-21 10:13:00</span>
+        <span class="mobile">2022-04-21 10:13</span>
     </span>
     
         <span class="article-categories article-meta-item">
@@ -182,7 +182,7 @@
             <ul>
                 
                     <li>
-                        <a href="/categories/English/">English</a>&nbsp;
+                        <a href="/categories/Python/">Python</a>&nbsp;
                     </li>
                 
             </ul>
@@ -194,7 +194,19 @@
             <ul>
                 
                     <li>
-                        <a href="/tags/English/">English</a>&nbsp;
+                        <a href="/tags/Python/">Python</a>&nbsp;
+                    </li>
+                
+                    <li>
+                        | <a href="/tags/Mysql/">Mysql</a>&nbsp;
+                    </li>
+                
+                    <li>
+                        | <a href="/tags/pymysql/">pymysql</a>&nbsp;
+                    </li>
+                
+                    <li>
+                        | <a href="/tags/SQL/">SQL</a>&nbsp;
                     </li>
                 
             </ul>
@@ -217,7 +229,13 @@
         
 
         <div class="article-content markdown-body">
-            <p>  <em>I’ve seen too many people record their learning, working or gym, etc. which they intend to persist in it on WeChat Moments, But I hardly see any of them still keeping it when one week passes or earlier.</em><br>  *IMO, It seems more like a sort of ritual for them than their initial purpose; It will be redundant and waste time for people who actually want to become better; Honestly, it really needs extremely determination to keep firm until we achieve succeed</p>
+            <h6 id="Code-only-Mark-for-the-next-usage"><a href="#Code-only-Mark-for-the-next-usage" class="headerlink" title="Code only, Mark for the next usage."></a>Code only, Mark for the next usage.</h6><h5 id="Requires"><a href="#Requires" class="headerlink" title="Requires:"></a>Requires:</h5><ul>
+<li>pymysql</li>
+<li>sshtunnel</li>
+</ul>
+<p>MySql Class:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> pymysql</span><br><span class="line"><span class="keyword">from</span> sshtunnel <span class="keyword">import</span> SSHTunnelForwarder</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">MySql</span>:</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">__init__</span>(<span class="params">self</span>):</span><br><span class="line">        self.server = SSHTunnelForwarder(</span><br><span class="line">            ssh_address_or_host=(<span class="string">&#x27;SSH IP-ADDRESS&#x27;</span>, <span class="number">22</span>),  <span class="comment"># 指定ssh登录的跳转机的address</span></span><br><span class="line">            ssh_username=<span class="string">&#x27;root&#x27;</span>,  <span class="comment"># 跳转机的用户</span></span><br><span class="line">            ssh_password=<span class="string">&#x27;PWD&#x27;</span>,  <span class="comment"># 跳转机的密码</span></span><br><span class="line">            remote_bind_address=(<span class="string">&#x27;DB HOST&#x27;</span>,</span><br><span class="line">                                 <span class="number">3306</span>))</span><br><span class="line">        self.server.start()</span><br><span class="line">        self.conn = pymysql.connect(host=<span class="string">&#x27;127.0.0.1&#x27;</span>, <span class="comment"># 用了ssh桥连，这里固定</span></span><br><span class="line">                                    port=self.server.local_bind_port,</span><br><span class="line">                                    user=<span class="string">&#x27;root&#x27;</span>,</span><br><span class="line">                                    password=<span class="string">&#x27;PWD&#x27;</span>,</span><br><span class="line">                                    db=<span class="string">&#x27;DB-NAME&#x27;</span>,</span><br><span class="line">                                    charset=<span class="string">&#x27;utf8&#x27;</span>)</span><br><span class="line">        self.cursor = self.conn.cursor()</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">insert</span>(<span class="params">self, sql</span>):</span><br><span class="line">        <span class="keyword">try</span>:</span><br><span class="line">            self.cursor.execute(sql)</span><br><span class="line">            self.conn.commit()</span><br><span class="line">        <span class="keyword">except</span> Exception <span class="keyword">as</span> e:</span><br><span class="line">            <span class="built_in">print</span>(e)</span><br><span class="line">            self.conn.rollback()</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">close</span>(<span class="params">self</span>):</span><br><span class="line">        self.server.stop()</span><br><span class="line">        self.cursor.close()</span><br><span class="line">        self.conn.close()</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">select</span>(<span class="params">self, sql</span>):</span><br><span class="line">        <span class="keyword">try</span>:</span><br><span class="line">            self.cursor.execute(sql)</span><br><span class="line">            <span class="keyword">return</span> self.cursor.fetchall()</span><br><span class="line">        <span class="keyword">except</span> Exception <span class="keyword">as</span> e:</span><br><span class="line">            <span class="built_in">print</span>(e)</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">None</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">update</span>(<span class="params">self, sql</span>):</span><br><span class="line">        <span class="keyword">try</span>:</span><br><span class="line">            self.cursor.execute(sql)</span><br><span class="line">            self.conn.commit()</span><br><span class="line">        <span class="keyword">except</span> Exception <span class="keyword">as</span> e:</span><br><span class="line">            <span class="built_in">print</span>(e)</span><br><span class="line">            self.conn.rollback()</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">delete</span>(<span class="params">self, sql</span>):</span><br><span class="line">        <span class="keyword">try</span>:</span><br><span class="line">            self.cursor.execute(sql)</span><br><span class="line">            self.conn.commit()</span><br><span class="line">        <span class="keyword">except</span> Exception <span class="keyword">as</span> e:</span><br><span class="line">            <span class="built_in">print</span>(e)</span><br><span class="line">            self.conn.rollback()</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">select_one</span>(<span class="params">self, sql</span>):</span><br><span class="line">        <span class="keyword">try</span>:</span><br><span class="line">            self.cursor.execute(sql)</span><br><span class="line">            <span class="keyword">return</span> self.cursor.fetchone()</span><br><span class="line">        <span class="keyword">except</span> Exception <span class="keyword">as</span> e:</span><br><span class="line">            <span class="built_in">print</span>(e)</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">None</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">select_many</span>(<span class="params">self, sql</span>):</span><br><span class="line">        <span class="keyword">try</span>:</span><br><span class="line">            self.cursor.execute(sql)</span><br><span class="line">            <span class="keyword">return</span> self.cursor.fetchmany()</span><br><span class="line">        <span class="keyword">except</span> Exception <span class="keyword">as</span> e:</span><br><span class="line">            <span class="built_in">print</span>(e)</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">None</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">select_all</span>(<span class="params">self, sql</span>):</span><br><span class="line">        <span class="keyword">try</span>:</span><br><span class="line">            self.cursor.execute(sql)</span><br><span class="line">            <span class="keyword">return</span> self.cursor.fetchall()</span><br><span class="line">        <span class="keyword">except</span> Exception <span class="keyword">as</span> e:</span><br><span class="line">            <span class="built_in">print</span>(e)</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">None</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">select_count</span>(<span class="params">self, sql</span>):</span><br><span class="line">        <span class="keyword">try</span>:</span><br><span class="line">            self.cursor.execute(sql)</span><br><span class="line">            <span class="keyword">return</span> self.cursor.fetchone()[<span class="number">0</span>]</span><br><span class="line">        <span class="keyword">except</span> Exception <span class="keyword">as</span> e:</span><br><span class="line">            <span class="built_in">print</span>(e)</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">None</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">insert_many</span>(<span class="params">self, sql, values</span>):</span><br><span class="line">        <span class="keyword">try</span>:</span><br><span class="line">            self.cursor.executemany(sql, values)</span><br><span class="line">            self.conn.commit()</span><br><span class="line">        <span class="keyword">except</span> Exception <span class="keyword">as</span> e:</span><br><span class="line">            self.conn.rollback()</span><br><span class="line">            <span class="keyword">raise</span> e</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
 
         </div>
 
@@ -227,7 +245,19 @@
             <ul class="post-tags-box">
                 
                     <li class="tag-item">
-                        <a href="/tags/English/">#English</a>&nbsp;
+                        <a href="/tags/Python/">#Python</a>&nbsp;
+                    </li>
+                
+                    <li class="tag-item">
+                        <a href="/tags/Mysql/">#Mysql</a>&nbsp;
+                    </li>
+                
+                    <li class="tag-item">
+                        <a href="/tags/pymysql/">#pymysql</a>&nbsp;
+                    </li>
+                
+                    <li class="tag-item">
+                        <a href="/tags/SQL/">#SQL</a>&nbsp;
                     </li>
                 
             </ul>
@@ -236,29 +266,14 @@
         
             <div class="article-nav">
                 
-                    <div class="article-prev">
-                        <a class="prev"
-                           rel="prev"
-                           href="/2022/04/21/Python-selenium-%E6%97%A0%E5%A4%B4%E6%B5%8F%E8%A7%88%E5%99%A8%E8%BF%87CloudFlare/"
-                        >
-                            <span class="left arrow-icon flex-center">
-                              <i class="fas fa-chevron-left"></i>
-                            </span>
-                            <span class="title flex-center">
-                                <span class="post-nav-title-item">Python selenium 无头浏览器过CloudFlare</span>
-                                <span class="post-nav-item">Prev posts</span>
-                            </span>
-                        </a>
-                    </div>
-                
                 
                     <div class="article-next">
                         <a class="next"
                            rel="next"
-                           href="/2022/04/12/Http%E8%AF%B7%E6%B1%82%E6%96%B9%E5%BC%8F/"
+                           href="/2022/04/21/Python-Cloudscraper-Request%E8%AF%B7%E6%B1%82HTML%E8%BF%87CloudFlare%E6%A3%80%E6%B5%8B/"
                         >
                             <span class="title flex-center">
-                                <span class="post-nav-title-item">Http请求方式</span>
+                                <span class="post-nav-title-item">Python Cloudscraper Request请求HTML过CloudFlare检测</span>
                                 <span class="post-nav-item">Next posts</span>
                             </span>
                             <span class="right arrow-icon flex-center">
@@ -458,7 +473,7 @@
         <aside class="page-aside">
             <div class="post-toc-wrap">
     <div class="post-toc">
-        
+        <ol class="nav"><li class="nav-item nav-level-6"><a class="nav-link" href="#Code-only-Mark-for-the-next-usage"><span class="nav-text">Code only, Mark for the next usage.</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Requires"><span class="nav-text">Requires:</span></a>
     </div>
 </div>
         </aside>

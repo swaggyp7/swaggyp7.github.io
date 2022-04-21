@@ -9,7 +9,7 @@
     
     <title>
         
-            Personal Opinion About &#34;Check in&#34; Form |
+            Python Cloudscraper Request请求HTML过CloudFlare检测 |
         
         Lyn
     </title>
@@ -154,7 +154,7 @@
     <div class="article-content-container">
 
         <div class="article-title">
-            <span class="title-hover-animation">Personal Opinion About &#34;Check in&#34; Form</span>
+            <span class="title-hover-animation">Python Cloudscraper Request请求HTML过CloudFlare检测</span>
         </div>
 
         
@@ -173,8 +173,8 @@
                         <div class="article-meta-info">
     <span class="article-date article-meta-item">
         <i class="fas fa-edit"></i>&nbsp;
-        <span class="pc">2022-04-14 14:07:00</span>
-        <span class="mobile">2022-04-14 14:07</span>
+        <span class="pc">2022-04-21 10:06:00</span>
+        <span class="mobile">2022-04-21 10:06</span>
     </span>
     
         <span class="article-categories article-meta-item">
@@ -182,7 +182,7 @@
             <ul>
                 
                     <li>
-                        <a href="/categories/English/">English</a>&nbsp;
+                        <a href="/categories/Python/">Python</a>&nbsp;
                     </li>
                 
             </ul>
@@ -194,7 +194,19 @@
             <ul>
                 
                     <li>
-                        <a href="/tags/English/">English</a>&nbsp;
+                        <a href="/tags/Python/">Python</a>&nbsp;
+                    </li>
+                
+                    <li>
+                        | <a href="/tags/Spider/">Spider</a>&nbsp;
+                    </li>
+                
+                    <li>
+                        | <a href="/tags/CloudFlare/">CloudFlare</a>&nbsp;
+                    </li>
+                
+                    <li>
+                        | <a href="/tags/Cloudscraper/">Cloudscraper</a>&nbsp;
                     </li>
                 
             </ul>
@@ -217,8 +229,13 @@
         
 
         <div class="article-content markdown-body">
-            <p>  <em>I’ve seen too many people record their learning, working or gym, etc. which they intend to persist in it on WeChat Moments, But I hardly see any of them still keeping it when one week passes or earlier.</em><br>  *IMO, It seems more like a sort of ritual for them than their initial purpose; It will be redundant and waste time for people who actually want to become better; Honestly, it really needs extremely determination to keep firm until we achieve succeed</p>
+            <h1 id="Python-Cloudscraper-Request请求HTML过CloudFlare检测"><a href="#Python-Cloudscraper-Request请求HTML过CloudFlare检测" class="headerlink" title="Python Cloudscraper Request请求HTML过CloudFlare检测"></a>Python Cloudscraper Request请求HTML过CloudFlare检测</h1><p>上一篇使用无头浏览器，在部署到服务器上时遇到了难题–由于服务器配置过低，但无头浏览器的webdriver cpu占用略高，双线程开两个cpu就吃满了，所以打算换一种思路，使用直接request请求</p>
+<p>刚准备写这个爬虫时，本是打算用request请求爬取静态资源解析的思路做的，但尝试后发现会被CloudFlare等工具检测并拦截.</p>
+<p>用了cloudscraper发送请求，现在可以过检测了，相比于无头浏览器，更加节省资源</p>
+<p>代码：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> cloudscraper</span><br><span class="line"></span><br><span class="line">    <span class="keyword">def</span> <span class="title function_">cloudflare_get</span>(<span class="params">self, url, proxies=<span class="literal">None</span></span>):</span><br><span class="line">        retry = <span class="number">6</span></span><br><span class="line">        <span class="keyword">while</span> retry &gt; <span class="number">0</span>:</span><br><span class="line">            <span class="keyword">try</span>:</span><br><span class="line">                res = cloudscraper.create_scraper().get(url,</span><br><span class="line">                                                        proxies=proxies,</span><br><span class="line">                                                        timeout=<span class="number">20</span>)</span><br><span class="line">                <span class="comment"># print(res.text)</span></span><br><span class="line">                <span class="keyword">return</span> res</span><br><span class="line">            <span class="comment"># except cloudscraper.exceptions.CloudflareIUAMError:</span></span><br><span class="line">            <span class="keyword">except</span> Exception <span class="keyword">as</span> e:</span><br><span class="line">                <span class="built_in">print</span>(<span class="string">f&#x27;cloudflare get failed on <span class="subst">&#123;e&#125;</span>, retrying&#x27;</span>)</span><br><span class="line">                logging.error(<span class="string">&#x27;cloudflare get failed on %s&#x27;</span>, e)</span><br><span class="line">                retry = retry - <span class="number">1</span></span><br><span class="line">                time.sleep(<span class="number">5</span>)</span><br><span class="line">                </span><br><span class="line">        <span class="keyword">raise</span> Exception(<span class="string">f&#x27;cloudflare get <span class="subst">&#123;url&#125;</span> failed&#x27;</span>)</span><br></pre></td></tr></table></figure>
 
+<h5 id="未来做爬虫时，对于不涉及复杂操作的爬取需求，一律采取静态资源爬取的方式，占用资源小，效率高。"><a href="#未来做爬虫时，对于不涉及复杂操作的爬取需求，一律采取静态资源爬取的方式，占用资源小，效率高。" class="headerlink" title="未来做爬虫时，对于不涉及复杂操作的爬取需求，一律采取静态资源爬取的方式，占用资源小，效率高。"></a>未来做爬虫时，对于不涉及复杂操作的爬取需求，一律采取静态资源爬取的方式，占用资源小，效率高。</h5><h5 id="无头浏览器针对于存在复杂操作逻辑时才需要使用"><a href="#无头浏览器针对于存在复杂操作逻辑时才需要使用" class="headerlink" title="无头浏览器针对于存在复杂操作逻辑时才需要使用"></a>无头浏览器针对于存在复杂操作逻辑时才需要使用</h5>
         </div>
 
         
@@ -227,7 +244,19 @@
             <ul class="post-tags-box">
                 
                     <li class="tag-item">
-                        <a href="/tags/English/">#English</a>&nbsp;
+                        <a href="/tags/Python/">#Python</a>&nbsp;
+                    </li>
+                
+                    <li class="tag-item">
+                        <a href="/tags/Spider/">#Spider</a>&nbsp;
+                    </li>
+                
+                    <li class="tag-item">
+                        <a href="/tags/CloudFlare/">#CloudFlare</a>&nbsp;
+                    </li>
+                
+                    <li class="tag-item">
+                        <a href="/tags/Cloudscraper/">#Cloudscraper</a>&nbsp;
                     </li>
                 
             </ul>
@@ -239,13 +268,13 @@
                     <div class="article-prev">
                         <a class="prev"
                            rel="prev"
-                           href="/2022/04/21/Python-selenium-%E6%97%A0%E5%A4%B4%E6%B5%8F%E8%A7%88%E5%99%A8%E8%BF%87CloudFlare/"
+                           href="/2022/04/21/111/"
                         >
                             <span class="left arrow-icon flex-center">
                               <i class="fas fa-chevron-left"></i>
                             </span>
                             <span class="title flex-center">
-                                <span class="post-nav-title-item">Python selenium 无头浏览器过CloudFlare</span>
+                                <span class="post-nav-title-item">Python ssh桥连mysql</span>
                                 <span class="post-nav-item">Prev posts</span>
                             </span>
                         </a>
@@ -255,10 +284,10 @@
                     <div class="article-next">
                         <a class="next"
                            rel="next"
-                           href="/2022/04/12/Http%E8%AF%B7%E6%B1%82%E6%96%B9%E5%BC%8F/"
+                           href="/2022/04/21/Python-selenium-%E6%97%A0%E5%A4%B4%E6%B5%8F%E8%A7%88%E5%99%A8%E8%BF%87CloudFlare/"
                         >
                             <span class="title flex-center">
-                                <span class="post-nav-title-item">Http请求方式</span>
+                                <span class="post-nav-title-item">Python selenium 无头浏览器过CloudFlare</span>
                                 <span class="post-nav-item">Next posts</span>
                             </span>
                             <span class="right arrow-icon flex-center">
@@ -458,7 +487,7 @@
         <aside class="page-aside">
             <div class="post-toc-wrap">
     <div class="post-toc">
-        
+        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Python-Cloudscraper-Request%E8%AF%B7%E6%B1%82HTML%E8%BF%87CloudFlare%E6%A3%80%E6%B5%8B"><span class="nav-text">Python Cloudscraper Request请求HTML过CloudFlare检测</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%9C%AA%E6%9D%A5%E5%81%9A%E7%88%AC%E8%99%AB%E6%97%B6%EF%BC%8C%E5%AF%B9%E4%BA%8E%E4%B8%8D%E6%B6%89%E5%8F%8A%E5%A4%8D%E6%9D%82%E6%93%8D%E4%BD%9C%E7%9A%84%E7%88%AC%E5%8F%96%E9%9C%80%E6%B1%82%EF%BC%8C%E4%B8%80%E5%BE%8B%E9%87%87%E5%8F%96%E9%9D%99%E6%80%81%E8%B5%84%E6%BA%90%E7%88%AC%E5%8F%96%E7%9A%84%E6%96%B9%E5%BC%8F%EF%BC%8C%E5%8D%A0%E7%94%A8%E8%B5%84%E6%BA%90%E5%B0%8F%EF%BC%8C%E6%95%88%E7%8E%87%E9%AB%98%E3%80%82"><span class="nav-text">未来做爬虫时，对于不涉及复杂操作的爬取需求，一律采取静态资源爬取的方式，占用资源小，效率高。</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%97%A0%E5%A4%B4%E6%B5%8F%E8%A7%88%E5%99%A8%E9%92%88%E5%AF%B9%E4%BA%8E%E5%AD%98%E5%9C%A8%E5%A4%8D%E6%9D%82%E6%93%8D%E4%BD%9C%E9%80%BB%E8%BE%91%E6%97%B6%E6%89%8D%E9%9C%80%E8%A6%81%E4%BD%BF%E7%94%A8"><span class="nav-text">无头浏览器针对于存在复杂操作逻辑时才需要使用</span></a></li></ol></li></ol></li></ol></li></ol></li></ol>
     </div>
 </div>
         </aside>
