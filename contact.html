@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Yuteng Lin — Contact</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="script.js" defer></script>
+  </head>
+  <body>
+    <header id="header">
+      <div class="container">
+        <h1 class="brand">Yuteng Lin</h1>
+        <p class="tagline">Full-Stack Web Developer · Winnipeg, Canada</p>
+      </div>
+    </header>
+
+    <nav id="nav" aria-label="Primary">
+      <ul class="container">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="skills.html">Skills & Services</a></li>
+        <li><a class="active" href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+
+    <main id="content" class="container">
+      <h2>Contact Me</h2>
+      <p>
+        Have a project in mind? Send me a message. I usually reply within one
+        business day.
+      </p>
+
+      <form id="contactForm" action="index.html" method="get" novalidate>
+        <div class="field">
+          <label for="name">Name</label>
+          <input
+            id="name"
+            name="name"
+            type="text"
+            autocomplete="name"
+            required
+          />
+          <p id="nameError" class="error">Please enter your name.</p>
+        </div>
+
+        <div class="field">
+          <label for="phone">Phone</label>
+          <input
+            id="phone"
+            name="phone"
+            type="tel"
+            inputmode="numeric"
+            placeholder="2045551234"
+            required
+          />
+          <p id="phoneError" class="error">Enter a 10-digit phone number.</p>
+        </div>
+
+        <div class="field">
+          <label for="email">Email</label>
+          <input
+            id="email"
+            name="email"
+            type="email"
+            autocomplete="email"
+            required
+          />
+          <p id="emailError" class="error">Enter a valid email address.</p>
+        </div>
+
+        <div class="field">
+          <label for="comments">Comments</label>
+          <textarea id="comments" name="comments" rows="5" required></textarea>
+          <p id="commentsError" class="error">Please provide a comment.</p>
+        </div>
+
+        <div class="buttons">
+          <button type="submit" class="button">Submit</button>
+          <button type="reset" class="button button--ghost">Reset</button>
+        </div>
+      </form>
+    </main>
+
+    <footer id="footer">
+      <div class="container footer-grid">
+        <small>© <span id="year"></span> Yuteng Lin</small>
+        <nav aria-label="Footer">
+          <a href="index.html">Home</a>
+          <a href="skills.html">Skills & Services</a>
+          <a href="contact.html">Contact</a>
+        </nav>
+      </div>
+    </footer>
+  </body>
+</html>
